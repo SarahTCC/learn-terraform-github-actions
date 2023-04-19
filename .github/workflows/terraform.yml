@@ -48,7 +48,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const output = `#### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            const output = `#### Terraform Plan \`${{ steps.plan.outcome }}\`
 
             <details><summary>Show Plan</summary>
 
@@ -56,9 +56,7 @@ jobs:
             ${process.env.PLAN}
             \`\`\`
 
-            </details>
-
-            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            </details>`;
 
             github.rest.issues.createComment({
               issue_number: context.issue.number,
